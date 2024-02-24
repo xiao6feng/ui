@@ -1,0 +1,6 @@
+# # melos_managed_dependency_overrides: theme
+# dependency_overrides:
+#   theme:
+#     path: ../../theme
+#   component:
+#     path: ../
