@@ -12,7 +12,9 @@ dependencies:
     sdk: flutter
   theme:
     git:
-      url: https://github.com/xiao6feng/ui/theme.git
+      url: https://github.com/xiao6feng/ui.git
+      path: theme
+
   two_dimensional_scrollables: ^0.0.4
   barcode_widget: ^2.0.4
   wechat_assets_picker: ^8.7.1
