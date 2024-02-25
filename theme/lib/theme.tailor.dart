@@ -3062,18 +3062,21 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
   const ToastTheme({
     required this.errorDecoration,
     required this.loadingDecoration,
+    required this.loadingTextStatus,
     required this.successDecoration,
     required this.textDecoration,
   });
 
   final Decoration errorDecoration;
   final Decoration loadingDecoration;
+  final String loadingTextStatus;
   final Decoration successDecoration;
   final Decoration textDecoration;
 
   static final ToastTheme baseTheme = ToastTheme(
     errorDecoration: _$ToastTheme.errorDecoration[0],
     loadingDecoration: _$ToastTheme.loadingDecoration[0],
+    loadingTextStatus: _$ToastTheme.loadingTextStatus[0],
     successDecoration: _$ToastTheme.successDecoration[0],
     textDecoration: _$ToastTheme.textDecoration[0],
   );
@@ -3086,12 +3089,14 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
   ToastTheme copyWith({
     Decoration? errorDecoration,
     Decoration? loadingDecoration,
+    String? loadingTextStatus,
     Decoration? successDecoration,
     Decoration? textDecoration,
   }) {
     return ToastTheme(
       errorDecoration: errorDecoration ?? this.errorDecoration,
       loadingDecoration: loadingDecoration ?? this.loadingDecoration,
+      loadingTextStatus: loadingTextStatus ?? this.loadingTextStatus,
       successDecoration: successDecoration ?? this.successDecoration,
       textDecoration: textDecoration ?? this.textDecoration,
     );
@@ -3103,6 +3108,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
     return ToastTheme(
       errorDecoration: t < 0.5 ? errorDecoration : other.errorDecoration,
       loadingDecoration: t < 0.5 ? loadingDecoration : other.loadingDecoration,
+      loadingTextStatus: t < 0.5 ? loadingTextStatus : other.loadingTextStatus,
       successDecoration: t < 0.5 ? successDecoration : other.successDecoration,
       textDecoration: t < 0.5 ? textDecoration : other.textDecoration,
     );
@@ -3118,6 +3124,8 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
             const DeepCollectionEquality()
                 .equals(loadingDecoration, other.loadingDecoration) &&
             const DeepCollectionEquality()
+                .equals(loadingTextStatus, other.loadingTextStatus) &&
+            const DeepCollectionEquality()
                 .equals(successDecoration, other.successDecoration) &&
             const DeepCollectionEquality()
                 .equals(textDecoration, other.textDecoration));
@@ -3129,6 +3137,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
       runtimeType.hashCode,
       const DeepCollectionEquality().hash(errorDecoration),
       const DeepCollectionEquality().hash(loadingDecoration),
+      const DeepCollectionEquality().hash(loadingTextStatus),
       const DeepCollectionEquality().hash(successDecoration),
       const DeepCollectionEquality().hash(textDecoration),
     );

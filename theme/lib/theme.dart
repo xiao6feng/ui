@@ -737,4 +737,6 @@ class _$ToastTheme {
           Border.fromBorderSide(BorderSide(color: Color(0x33ffffff), width: 1)),
     )
   ];
+
+  static List<String> loadingTextStatus = ['Loading...'];
 }
