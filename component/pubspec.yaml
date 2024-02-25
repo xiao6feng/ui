@@ -26,12 +26,8 @@ dependencies:
   carousel_slider: ^4.2.1
   intl: ^0.18.1
   get: ^4.6.6
-  # common_utils:
-  #   git: https://gitlab.ddyhr.com/app_foundation/package/common_utils.git
-  # pagination:
-  #   git:
-  #     url: https://gitlab.ddyhr.com/app_foundation/package/api_service.git
-  #     path: pagination
+  animated_text_kit: ^4.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

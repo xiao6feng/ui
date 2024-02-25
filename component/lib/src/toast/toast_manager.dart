@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:theme/theme.dart';
 
 import 'gif_animation.dart';
+import 'text_animation.dart';
 
 const Decoration _kLoadingDecoration = BoxDecoration(
   color: Color(0xCC000000),
@@ -110,6 +111,34 @@ class ToastManager {
                         ),
                       ],
                     )
+                ],
+              ),
+            );
+          });
+        });
+  }
+
+  /// loading 对话框
+  CancelFunc showTextLoading({String status = 'Loading...'}) {
+    return BotToast.showCustomLoading(
+        backgroundColor: Colors.transparent,
+        toastBuilder: (_) {
+          return Builder(builder: (context) {
+            final theme = Theme.of(context).extension<AppTheme>()?.toastTheme;
+            return Container(
+              width: 96,
+              height: 96,
+              padding: const EdgeInsets.symmetric(
+                vertical: 6.0,
+                horizontal: 12,
+              ),
+              decoration: theme?.loadingDecoration ?? _kLoadingDecoration,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  TextAnimation(status: status),
                 ],
               ),
             );
