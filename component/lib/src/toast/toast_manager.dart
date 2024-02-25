@@ -119,7 +119,7 @@ class ToastManager {
   }
 
   /// loading 对话框
-  CancelFunc showTextLoading({String status = 'Loading...'}) {
+  CancelFunc showTextLoading({String? status}) {
     return BotToast.showCustomLoading(
         backgroundColor: Colors.transparent,
         toastBuilder: (_) {
@@ -138,7 +138,9 @@ class ToastManager {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  TextAnimation(status: status),
+                  TextAnimation(
+                      status:
+                          status ?? theme?.loadingTextStatus ?? 'Loading...'),
                 ],
               ),
             );
