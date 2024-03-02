@@ -73,6 +73,7 @@ export 'src/picker/ob_picker/ob_picker.dart';
 export 'src/toast/toast_manager.dart';
 export 'src/toast/lottie_loading.dart';
 export 'src/toast/gif_animation.dart';
+export 'package:loading_indicator/loading_indicator.dart';
 
 export 'src/customer/contact_customer_service.dart';
 
