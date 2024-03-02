@@ -96,6 +96,7 @@ class ToastManager {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   custom ??
+                      theme?.loadingCustomWidget ??
                       LoadingIndicator(
                         indicatorType: Indicator.ballPulse,
                         colors: const [Colors.red, Colors.blue, Colors.yellow],
