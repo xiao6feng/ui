@@ -1,6 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:component/src/toast/lottie_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:theme/theme.dart';
 
 import 'gif_animation.dart';
@@ -69,6 +70,60 @@ class ToastManager {
   @Deprecated('Use [showGifLoading]')
   CancelFunc showLoading({String? status}) {
     return showGifLoading(status: status);
+  }
+
+  //custom
+  CancelFunc showCustomLoading({
+    String? status,
+    Widget? custom,
+  }) {
+    return BotToast.showCustomLoading(
+        backgroundColor: Colors.transparent,
+        toastBuilder: (_) {
+          return Builder(builder: (context) {
+            final theme = Theme.of(context).extension<AppTheme>()?.toastTheme;
+            return Container(
+              width: 96,
+              height: 96,
+              padding: const EdgeInsets.symmetric(
+                vertical: 6.0,
+                horizontal: 12,
+              ),
+              decoration: theme?.loadingDecoration ?? _kLoadingDecoration,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  custom ??
+                      LoadingIndicator(
+                        indicatorType: Indicator.ballPulse,
+                        colors: const [Colors.red, Colors.blue, Colors.yellow],
+                      ),
+                  if (status != null)
+                    Column(
+                      children: <Widget>[
+                        const SizedBox(height: 8),
+                        Text(
+                          status,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                            height: 1.1,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                        ),
+                      ],
+                    )
+                ],
+              ),
+            );
+          });
+        });
   }
 
   /// loading 对话框
