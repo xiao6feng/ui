@@ -3065,6 +3065,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
     required this.loadingTextStatus,
     required this.successDecoration,
     required this.textDecoration,
+    this.loadingCustomWidget,
   });
 
   final Decoration errorDecoration;
@@ -3072,6 +3073,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
   final String loadingTextStatus;
   final Decoration successDecoration;
   final Decoration textDecoration;
+  final Widget? loadingCustomWidget;
 
   static final ToastTheme baseTheme = ToastTheme(
     errorDecoration: _$ToastTheme.errorDecoration[0],
@@ -3079,6 +3081,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
     loadingTextStatus: _$ToastTheme.loadingTextStatus[0],
     successDecoration: _$ToastTheme.successDecoration[0],
     textDecoration: _$ToastTheme.textDecoration[0],
+    loadingCustomWidget: _$ToastTheme.loadingCustomWidget[0],
   );
 
   static final themes = [
@@ -3092,6 +3095,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
     String? loadingTextStatus,
     Decoration? successDecoration,
     Decoration? textDecoration,
+    Widget? loadingCustomWidget,
   }) {
     return ToastTheme(
       errorDecoration: errorDecoration ?? this.errorDecoration,
@@ -3099,6 +3103,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
       loadingTextStatus: loadingTextStatus ?? this.loadingTextStatus,
       successDecoration: successDecoration ?? this.successDecoration,
       textDecoration: textDecoration ?? this.textDecoration,
+      loadingCustomWidget: loadingCustomWidget ?? this.loadingCustomWidget,
     );
   }
 
@@ -3111,6 +3116,8 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
       loadingTextStatus: t < 0.5 ? loadingTextStatus : other.loadingTextStatus,
       successDecoration: t < 0.5 ? successDecoration : other.successDecoration,
       textDecoration: t < 0.5 ? textDecoration : other.textDecoration,
+      loadingCustomWidget:
+          t < 0.5 ? loadingCustomWidget : other.loadingCustomWidget,
     );
   }
 
@@ -3128,7 +3135,9 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
             const DeepCollectionEquality()
                 .equals(successDecoration, other.successDecoration) &&
             const DeepCollectionEquality()
-                .equals(textDecoration, other.textDecoration));
+                .equals(textDecoration, other.textDecoration) &&
+            const DeepCollectionEquality()
+                .equals(loadingCustomWidget, other.loadingCustomWidget));
   }
 
   @override
@@ -3140,6 +3149,7 @@ class ToastTheme extends ThemeExtension<ToastTheme> {
       const DeepCollectionEquality().hash(loadingTextStatus),
       const DeepCollectionEquality().hash(successDecoration),
       const DeepCollectionEquality().hash(textDecoration),
+      const DeepCollectionEquality().hash(loadingCustomWidget),
     );
   }
 }

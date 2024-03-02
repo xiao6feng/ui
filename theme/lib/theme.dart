@@ -714,6 +714,7 @@ class _$ToastTheme {
           Border.fromBorderSide(BorderSide(color: Color(0x51FFFFFF), width: 1)),
     )
   ];
+  static List<Widget?> loadingCustomWidget = [null];
   static List<Decoration> textDecoration = [
     const ShapeDecoration(
       shape:
